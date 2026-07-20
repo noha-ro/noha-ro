@@ -1,0 +1,377 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects, services, site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Bine ai venit la Noha</p>
+        <h1>Ideile tale,<br /><span>realizate digital</span></h1>
+        <p class="hero__lead">
+          La Noha, creăm site-uri moderne și funcționale, adaptate nevoilor tale. Indiferent de
+          domeniu, îți transformăm ideile în realitate digitală. Simplu, rapid și profesionist.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/contact/">Începe acum</a>
+          <a class="btn btn-ghost" href="/proiecte/">Vezi proiectele</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <strong>89+</strong>
+            <span>Clienți de succes</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Design modern</span>
+          </div>
+          <div class="stat">
+            <strong>RO</strong>
+            <span>Prețuri accesibile</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="hero-card">
+          <img src="/images/logo-noha.png" alt="" width="220" height="126" />
+          <p>Website · SEO · E-commerce</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Ce ne face diferiți"
+        title="Creativitate și tehnologie, fără pierderi de timp"
+        lead="Combinăm creativitatea cu tehnologia pentru a livra site-uri care fac diferența. Gestionăm fiecare etapă, ca tu să te concentrezi pe afacere."
+      />
+      <div class="grid-3">
+        <article class="panel">
+          <h3>Economisești timp</h3>
+          <p>
+            De la brief la lansare, ne ocupăm de structură, design și implementare — fără să te
+            împotmolești în detalii tehnice.
+          </p>
+        </article>
+        <article class="panel">
+          <h3>Prețuri accesibile</h3>
+          <p>
+            Oferim soluții care se potrivesc bugetului tău. Calitatea și accesibilitatea merg mână
+            în mână.
+          </p>
+        </article>
+        <article class="panel">
+          <h3>Strategie clară</h3>
+          <p>
+            Folosim abordări practice ca site-ul tău să atragă vizitatori, să clarifice oferta și să
+            genereze contacte.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-wash">
+    <div class="container split">
+      <div>
+        <SectionHeading
+          eyebrow="Marketing Noha"
+          title="Vizibilitate online care aduce rezultate"
+          lead="Pe lângă website, te ajutăm să crești pe rețele și în căutări — cu mesaje clare și prezență consistentă."
+        />
+        <ul class="checks">
+          <li>Optimizare pentru motoarele de căutare</li>
+          <li>Conținut și interacțiune pe social media</li>
+          <li>Experiențe care cresc încrederea clienților</li>
+        </ul>
+      </div>
+      <div class="metrics panel">
+        <div class="stat">
+          <strong>85%</strong>
+          <span>Creșterea vânzărilor*</span>
+        </div>
+        <div class="stat">
+          <strong>120%</strong>
+          <span>Interacțiune*</span>
+        </div>
+        <p class="note">*Exemple de rezultate pe proiecte selectate; rezultatele variază.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Serviciile noastre"
+        title="Soluții digitale pentru succes"
+        lead="Fiecare soluție este personalizată pentru nevoile și obiectivele tale."
+      />
+      <div class="grid-3">
+        {services.map((service) => <ServiceCard title={service.title} summary={service.summary} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-wash">
+    <div class="container">
+      <div class="projects-head">
+        <SectionHeading
+          eyebrow="Proiectele noastre"
+          title="Proiecte finalizate"
+          lead="Am colaborat cu afaceri din domenii diferite pentru a transforma ideile în site-uri de impact."
+        />
+        <a class="btn btn-ghost" href="/proiecte/">Vezi toate proiectele</a>
+      </div>
+      <div class="projects-grid">
+        {projects.map((project) => <ProjectCard {...project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="container cta__inner panel">
+      <div>
+        <h2>Hai să construim următorul tău website</h2>
+        <p>Spune-ne pe scurt ce ai nevoie — revenim cu o propunere clară.</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn-primary" href="/contact/">Contactează-ne</a>
+        <a class="btn btn-ghost" href={site.phoneHref}>{site.phone}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4.4rem);
+    max-width: 11ch;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 span {
+    color: var(--color-accent);
+  }
+
+  .hero__lead {
+    font-size: 1.1rem;
+    max-width: 36rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 32rem;
+  }
+
+  .hero__visual {
+    position: relative;
+    min-height: 22rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .orb-a {
+    width: 16rem;
+    height: 16rem;
+    background: rgba(255, 100, 0, 0.28);
+    top: 10%;
+    right: 8%;
+  }
+
+  .orb-b {
+    width: 12rem;
+    height: 12rem;
+    background: rgba(136, 119, 237, 0.3);
+    bottom: 8%;
+    left: 10%;
+    animation-delay: -3s;
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid var(--color-line);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    animation: rise 0.8s ease both;
+  }
+
+  .hero-card img {
+    margin: 0 auto 1rem;
+    height: 3.5rem;
+    width: auto;
+  }
+
+  .hero-card p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+  }
+
+  .section-wash {
+    background: linear-gradient(180deg, transparent, rgba(237, 234, 255, 0.7), transparent);
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .checks li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+
+  .checks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .metrics {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .note {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  .projects-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 0.5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .cta__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: center;
+    background:
+      linear-gradient(135deg, rgba(255, 100, 0, 0.08), rgba(136, 119, 237, 0.1)),
+      #fff;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    max-width: 16ch;
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero__grid,
+    .split,
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__visual {
+      min-height: 16rem;
+      order: -1;
+    }
+
+    .projects-head,
+    .cta__inner {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .hero__stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Faq from '../components/Faq.astro';
+import { services, site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Servicii"
+  description="Website personalizat, SEO, e-commerce, mentenanță și branding digital — soluții Noha pentru afacerea ta."
+>
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Serviciile noastre"
+        title="Ce oferim pentru afacerea ta"
+        lead="Fie că ai nevoie de un website nou, SEO, magazin online sau suport tehnic, suntem aici cu soluții adaptate obiectivelor tale."
+      />
+      <div class="grid-3">
+        {
+          services.map((service) => (
+            <article class="panel service-detail">
+              <h3>{service.title}</h3>
+              <p>{service.summary}</p>
+              <p class="detail">{service.details}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-wash">
+    <div class="container split">
+      <div>
+        <SectionHeading
+          eyebrow="Programează o discuție"
+          title="Ai nevoie de sfaturi pentru site-ul tău?"
+          lead="Oferim soluții personalizate care transformă ideile în rezultate concrete."
+        />
+        <ul class="list">
+          <li><strong>SEO:</strong> vizibilitate mai bună în căutări</li>
+          <li><strong>Design personalizat:</strong> pe brandul tău</li>
+          <li><strong>UX:</strong> navigare clară și conversie</li>
+          <li><strong>Consultanță:</strong> strategii pe obiective</li>
+        </ul>
+      </div>
+      <aside class="panel contact-aside">
+        <h3>Locația noastră</h3>
+        <p>{site.address}</p>
+        <h3>Email</h3>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <h3>Telefon</h3>
+        <p><a href={site.phoneHref}>{site.phone}</a></p>
+        <a class="btn btn-primary" href="/contact/">Hai să vorbim</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="FAQ"
+        title="Întrebări frecvente"
+        lead="Răspunsuri scurte la cele mai comune întrebări despre serviciile noastre."
+      />
+      <Faq />
+      <div class="faq-cta">
+        <p>Nu ai găsit răspunsul?</p>
+        <a class="btn btn-ghost" href="/contact/">Contactează-ne</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .service-detail h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .detail {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-weight: 500;
+  }
+
+  .section-wash {
+    background: linear-gradient(180deg, transparent, rgba(237, 234, 255, 0.7), transparent);
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .list {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .contact-aside {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .contact-aside h3 {
+    margin: 0.75rem 0 0.15rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-aside p {
+    margin: 0;
+  }
+
+  .contact-aside .btn {
+    margin-top: 1rem;
+    justify-self: start;
+  }
+
+  .faq-cta {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .faq-cta p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

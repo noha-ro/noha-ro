@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('ro-RO', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="section">
+    <div class="container prose-wrap">
+      <p class="eyebrow">
+        <a href="/blog/">Blog</a>
+        ·
+        <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+      </p>
+      <h1>{post.data.title}</h1>
+      <div class="prose">
+        <Content />
+      </div>
+      <a class="btn btn-ghost back" href="/blog/">← Înapoi la blog</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose-wrap {
+    max-width: 48rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow a:hover {
+    color: var(--color-ink-soft);
+  }
+
+  .back {
+    margin-top: 2rem;
+  }
+</style>

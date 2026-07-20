@@ -1,0 +1,177 @@
+---
+import { site } from '../data/site';
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="/" aria-label="Noha — Acasă">
+      <img src="/images/logo-noha.png" alt="Noha" width="140" height="80" />
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only">Meniu</span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="site-nav" data-nav>
+      <ul>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[{ active: pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) }]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn-primary nav-cta" href="/contact/">Începe acum</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--color-wash) 82%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-line) 80%, transparent);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h);
+    gap: 1rem;
+  }
+
+  .logo img {
+    width: auto;
+    height: 2.5rem;
+    object-fit: contain;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 0.25rem 1.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    padding: 0.35rem 0;
+    position: relative;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    color: var(--color-ink-soft);
+  }
+
+  .nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 999px;
+  }
+
+  .nav-toggle {
+    display: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 0;
+    place-items: center;
+    gap: 5px;
+  }
+
+  .nav-toggle span:not(.sr-only) {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: var(--color-ink-soft);
+    border-radius: 2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle {
+      display: grid;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      inset: calc(var(--header-h) - 1px) 0 auto;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem 1rem 1.25rem;
+      background: #fff;
+      border-bottom: 1px solid var(--color-line);
+      box-shadow: var(--shadow);
+    }
+
+    .nav.is-open {
+      display: flex;
+    }
+
+    .nav ul {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav a {
+      display: block;
+      padding: 0.75rem 0.5rem;
+    }
+
+    .nav-cta {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const nav = document.querySelector('[data-nav]');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

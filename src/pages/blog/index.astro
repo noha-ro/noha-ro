@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+export const prerender = true;
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('ro-RO', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout
+  title="Blog"
+  description="Idei, sfaturi și noutăți din web design, tehnologie și marketing digital — blogul Noha."
+>
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Blogul nostru"
+        title="Inspirație și noutăți din lumea digitală"
+        lead="Descoperă idei practice pentru prezența ta online, SEO și comerț digital."
+      />
+      <div class="posts">
+        {
+          posts.map((post) => (
+            <article class="panel post">
+              <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+              <h2>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h2>
+              <p>{post.data.description}</p>
+              <a class="more" href={`/blog/${post.id}/`}>
+                Citește mai mult
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .posts {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .post time {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  .post h2 {
+    font-size: 1.35rem;
+    margin: 0.4rem 0 0.6rem;
+  }
+
+  .post h2 a:hover {
+    color: var(--color-accent);
+  }
+
+  .more {
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+</style>

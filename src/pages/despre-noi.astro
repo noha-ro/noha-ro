@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Despre noi"
+  description="La Noha transformăm ideile în realitate digitală. Echipă pasionată de inovație, creativitate și tehnologie."
+>
+  <section class="section">
+    <div class="container narrow">
+      <p class="eyebrow">Despre noi</p>
+      <h1>Misiunea noastră digitală</h1>
+      <p class="lead">
+        La Noha, ne dedicăm transformării ideilor tale în realitate digitală. Suntem o echipă
+        pasionată de inovație, creativitate și tehnologie, pregătită să ofere soluții personalizate
+        pentru orice tip de afacere. Credem în parteneriate bazate pe încredere, calitate și
+        rezultate de impact.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container grid-3">
+      <article class="panel">
+        <h3>Colaborare transparentă</h3>
+        <p>Te implicăm în fiecare etapă, ca să fii mereu la curent cu progresul și deciziile importante.</p>
+      </article>
+      <article class="panel">
+        <h3>Soluții personalizate</h3>
+        <p>Fiecare afacere este unică — creăm site-uri și strategii care reflectă viziunea ta.</p>
+      </article>
+      <article class="panel">
+        <h3>Experiență și profesionalism</h3>
+        <p>Combinăm expertiza tehnică cu atenția la detalii pentru servicii de calitate.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="panel">
+        <h3>Viziunea noastră</h3>
+        <p>
+          Transformăm ideile în soluții digitale de impact, contribuind la succesul afacerilor într-o
+          lume în continuă schimbare.
+        </p>
+      </article>
+      <article class="panel">
+        <h3>Misiunea noastră</h3>
+        <p>
+          Să oferim servicii digitale inovatoare, personalizate pentru fiecare client, astfel încât
+          fiecare proiect să aducă valoare și rezultate vizibile.
+        </p>
+      </article>
+      <article class="panel">
+        <h3>Suportul nostru</h3>
+        <p>
+          Suntem alături de tine de la concept la implementare și după lansare, cu sprijin rapid când
+          ai nevoie.
+        </p>
+      </article>
+      <article class="panel">
+        <h3>De ce Noha?</h3>
+        <p>
+          Punem pe primul loc succesul clienților: creativitate, tehnologie și experiență, într-un
+          proces clar și accesibil.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta panel">
+      <SectionHeading
+        title="Primul pas spre succes online este aici"
+        lead="Indiferent de dimensiunea afacerii tale, un website profesional te ajută să fii remarcat, să convingi și să convertești."
+      />
+      <a class="btn btn-primary" href="/contact/">Contactează-ne</a>
+      <p class="meta">{site.company.name} · {site.address}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 46rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  .cta {
+    text-align: center;
+  }
+
+  .cta :global(.heading) {
+    margin-bottom: 1.25rem;
+  }
+
+  .cta :global(.section-title),
+  .cta :global(.section-lead) {
+    margin-inline: auto;
+  }
+
+  .meta {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+</style>

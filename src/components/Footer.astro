@@ -1,0 +1,125 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="footer-logo" href="/">
+        <img src="/images/logo-noha.png" alt="Noha" width="120" height="70" />
+      </a>
+      <p>{site.description}</p>
+    </div>
+
+    <div>
+      <h3>Navigare</h3>
+      <ul>
+        {site.nav.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>
+          <a href={site.phoneHref}>{site.phone}</a>
+        </li>
+        <li>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </li>
+        <li>{site.address}</li>
+        <li>
+          <a href={site.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {new Date().getFullYear()} {site.name} · {site.company.name}</p>
+    <div class="legal">
+      <a href="/termeni-si-conditii/">Termeni și condiții</a>
+      <a href="/politica-de-confidentialitate/">Confidențialitate</a>
+      <a href="/politica-cookie-uri/">Cookie-uri</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 2rem;
+    background: var(--color-ink);
+    color: #d9d6ea;
+    padding: 3.5rem 0 1.5rem;
+  }
+
+  .footer a {
+    color: #eeeafc;
+  }
+
+  .footer a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer p {
+    color: #b7b2cf;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-logo img {
+    height: 2.25rem;
+    width: auto;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .footer__bottom p {
+    margin: 0;
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

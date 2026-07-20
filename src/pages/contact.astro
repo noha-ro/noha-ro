@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contactează Noha — email, telefon sau formular. Suntem în Alba Iulia și online pentru proiectul tău."
+>
+  <section class="section">
+    <div class="container split">
+      <div>
+        <SectionHeading
+          eyebrow="Contact"
+          title="Hai să luăm legătura"
+          lead="Ai întrebări sau vrei să începi un proiect? Completează formularul, scrie-ne un e-mail sau sună-ne. Revenim în cel mai scurt timp."
+        />
+        <ul class="info">
+          <li>
+            <strong>Adresa</strong>
+            <span>{site.address}</span>
+          </li>
+          <li>
+            <strong>Telefon</strong>
+            <a href={site.phoneHref}>{site.phone}</a>
+          </li>
+          <li>
+            <strong>Email</strong>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </li>
+          <li>
+            <strong>Social</strong>
+            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+          </li>
+        </ul>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .info li {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .info strong {
+    color: var(--color-ink-soft);
+    font-family: var(--font-display);
+  }
+
+  .info span,
+  .info a {
+    color: var(--color-muted);
+  }
+
+  .info a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

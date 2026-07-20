@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  href?: string;
+}
+
+const { title, summary, href = '/servicii/' } = Astro.props;
+---
+
+<article class="service panel">
+  <div class="icon" aria-hidden="true"></div>
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <a class="more" href={href}>Citește mai mult</a>
+</article>
+
+<style>
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 100%;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .service:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
+  }
+
+  .icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.85rem;
+    background:
+      linear-gradient(135deg, var(--color-accent), #ff9a55),
+      var(--color-accent-soft);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    flex: 1;
+  }
+
+  .more {
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+</style>

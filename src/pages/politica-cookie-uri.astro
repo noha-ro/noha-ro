@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Politică cookie-uri"
+  description="Informații despre cookie-urile folosite pe noha.ro."
+>
+  <section class="section">
+    <div class="container prose">
+      <h1>Politică cookie-uri</h1>
+      <p>
+        Site-ul <strong>noha.ro</strong> poate folosi cookie-uri pentru funcționare, preferințe și,
+        opțional, analiză de trafic.
+      </p>
+
+      <h2>Ce sunt cookie-urile?</h2>
+      <p>
+        Fișiere mici stocate pe dispozitivul tău, folosite pentru a reține setări sau a înțelege cum
+        este folosit site-ul.
+      </p>
+
+      <h2>Tipuri</h2>
+      <ul>
+        <li><strong>Esențiale</strong> — necesare pentru funcționarea de bază a site-ului</li>
+        <li><strong>Preferințe</strong> — rețin alegeri (ex. consimțământ)</li>
+        <li><strong>Analitice</strong> — statistici de utilizare, dacă sunt activate</li>
+      </ul>
+
+      <h2>Gestionare</h2>
+      <p>
+        Poți șterge sau bloca cookie-urile din setările browserului. Unele funcții pot fi afectate dacă
+        blochezi cookie-urile esențiale.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Întrebări: <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+</style>

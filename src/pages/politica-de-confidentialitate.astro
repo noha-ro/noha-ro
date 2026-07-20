@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Politica de confidențialitate"
+  description="Cum prelucrăm datele personale pe noha.ro, conform GDPR."
+>
+  <section class="section">
+    <div class="container prose">
+      <h1>Politica de confidențialitate</h1>
+      <p>
+        {site.company.name} („noi”) respectă confidențialitatea datelor tale. Această politică
+        explică ce date colectăm pe <strong>noha.ro</strong> și cum le folosim.
+      </p>
+
+      <h2>Operator</h2>
+      <p>
+        {site.company.name}, {site.company.legalAddress}, CIF {site.company.cif}. Contact:
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Date pe care le colectăm</h2>
+      <ul>
+        <li>Date din formularul de contact: nume, email, telefon, mesaj</li>
+        <li>Date tehnice uzuale: IP, tip de browser, pagini vizitate (dacă folosim analytics)</li>
+        <li>Preferințe cookie, dacă sunt configurate pe site</li>
+      </ul>
+
+      <h2>Scopuri</h2>
+      <ul>
+        <li>Răspuns la solicitări și derularea relației contractuale</li>
+        <li>Îmbunătățirea site-ului și măsurarea traficului</li>
+        <li>Respectarea obligațiilor legale</li>
+      </ul>
+
+      <h2>Temei legal</h2>
+      <p>
+        Interes legitim, executarea unui contract / pași precontractuali și, unde e cazul, consimțământ
+        (ex. cookie-uri neesențiale).
+      </p>
+
+      <h2>Păstrare</h2>
+      <p>
+        Păstrăm datele cât timp este necesar pentru scopul colectării sau pentru termenele legale
+        aplicabile, apoi le ștergem sau anonimizăm.
+      </p>
+
+      <h2>Drepturile tale</h2>
+      <p>
+        Ai dreptul de acces, rectificare, ștergere, restricționare, opoziție și portabilitate, unde
+        este cazul. Poți depune plângere la ANSPDCP. Pentru exercitarea drepturilor:
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Actualizări</h2>
+      <p>Putem actualiza această politică. Versiunea curentă este publicată pe această pagină.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+</style>

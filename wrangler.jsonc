@@ -1,0 +1,7 @@
+{
+  "name": "noha-ro",
+  "compatibility_date": "2026-07-20",
+  "vars": {
+    "PUBLIC_SITE_URL": "https://noha.ro"
+  }
+}

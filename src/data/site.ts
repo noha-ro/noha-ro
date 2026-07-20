@@ -1,0 +1,125 @@
+export const site = {
+  name: 'Noha',
+  tagline: 'Ideile tale, realizate digital',
+  description:
+    'Creăm site-uri moderne și funcționale, adaptate nevoilor tale. Simplu, rapid și profesionist.',
+  url: 'https://noha.ro',
+  email: 'contact@noha.ro',
+  phone: '+40 752 573 801',
+  phoneHref: 'tel:+40752573801',
+  address: 'Strada Viilor, Nr. 25, Alba Iulia',
+  company: {
+    name: 'WEBGEMS SRL',
+    cif: 'RO47368859',
+    regCom: 'J01/1925/2022',
+    legalAddress: 'Mun. Alba Iulia, Orizontului 5, C3, 1, Alba',
+  },
+  social: {
+    facebook: 'https://www.facebook.com/noha.fairplay',
+  },
+  nav: [
+    { href: '/', label: 'Acasă' },
+    { href: '/despre-noi/', label: 'Despre noi' },
+    { href: '/servicii/', label: 'Servicii' },
+    { href: '/proiecte/', label: 'Proiecte' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/contact/', label: 'Contact' },
+  ],
+};
+
+export const services = [
+  {
+    slug: 'creare-website',
+    title: 'Creare website personalizat',
+    summary:
+      'Site-uri unice, adaptate afacerii tale, care îmbină designul modern cu funcționalitatea optimă.',
+    details:
+      'De la landing pages la site-uri corporate complexe: structură clară, design pe brand și performanță pe mobil și desktop.',
+  },
+  {
+    slug: 'optimizare-seo',
+    title: 'Optimizare SEO',
+    summary:
+      'Creștem vizibilitatea site-ului tău pe motoarele de căutare, atrăgând mai mulți vizitatori și clienți.',
+    details:
+      'Audit tehnic, conținut optimizat, viteză și structură — ca să fii găsit de oamenii care te caută deja.',
+  },
+  {
+    slug: 'ecommerce',
+    title: 'E-commerce și magazine online',
+    summary:
+      'Magazine online intuitive și atractive, care transformă vizitatorii în clienți.',
+    details:
+      'Catalog, coș, plăți, livrare și administrare simplă — gata de vânzări din prima zi.',
+  },
+  {
+    slug: 'mentenanta',
+    title: 'Mentenanță și suport tehnic',
+    summary:
+      'Asigurăm funcționarea optimă a site-ului tău prin actualizări și suport constant.',
+    details:
+      'Backup-uri, securitate, actualizări și intervenții rapide când ai nevoie.',
+  },
+  {
+    slug: 'branding',
+    title: 'Branding digital și design',
+    summary:
+      'Identități vizuale puternice și materiale de design care te diferențiază pe piață.',
+    details:
+      'Logo, paletă, tipografie și materiale digitale coerente pe web și social media.',
+  },
+];
+
+export const projects = [
+  {
+    name: 'adrianiliescu.art',
+    url: 'https://adrianiliescu.art',
+    image: '/images/projects/adrianiliescu.png',
+    category: 'Portofoliu artist',
+  },
+  {
+    name: 'beepry.ro',
+    url: 'https://beepry.ro',
+    image: '/images/projects/beepry.png',
+    category: 'Website business',
+  },
+  {
+    name: 'epictoys.ro',
+    url: 'https://epictoys.ro',
+    image: '/images/projects/epictoys.png',
+    category: 'E-commerce',
+  },
+  {
+    name: 'jollin.ro',
+    url: 'https://jollin.ro',
+    image: '/images/projects/jollin.png',
+    category: 'Website business',
+  },
+];
+
+export const faqs = [
+  {
+    q: 'De ce am nevoie de un website pentru afacerea mea?',
+    a: 'Într-o lume digitalizată, un website profesional îți crește vizibilitatea, atrage noi clienți și îți consolidează brandul online.',
+  },
+  {
+    q: 'Ce informații trebuie să ofer pentru a începe un proiect?',
+    a: 'Vom avea nevoie de detalii despre afacerea ta, obiectivele tale, preferințele de design și orice conținut pe care dorești să îl incluzi.',
+  },
+  {
+    q: 'Oferiți suport tehnic după lansarea website-ului?',
+    a: 'Da, oferim servicii de mentenanță și suport pentru a ne asigura că site-ul tău funcționează optim.',
+  },
+  {
+    q: 'Pot actualiza conținutul site-ului meu după ce este finalizat?',
+    a: 'Absolut. Construim site-uri ușor de utilizat și te putem învăța cum să actualizezi conținutul singur.',
+  },
+  {
+    q: 'Cum pot îmbunătăți vizibilitatea site-ului meu?',
+    a: 'Prin optimizare SEO, publicitate online și conținut relevant. Oferim și aceste servicii pentru a te ajuta.',
+  },
+  {
+    q: 'Ce diferențiază serviciile voastre de altele?',
+    a: 'Ne concentrăm pe soluții personalizate, calitate excepțională și suport dedicat fiecărui client.',
+  },
+];

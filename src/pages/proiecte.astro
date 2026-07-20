@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Proiecte"
+  description="Descoperă proiectele finalizate de Noha — website-uri și magazine online construite cu atenție la detalii."
+>
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Portofoliu"
+        title="Proiectele noastre finalizate"
+        lead="Fiecare proiect este o poveste de colaborare: de la idee la lansare, cu design, tehnologie și focus pe rezultate."
+      />
+      <div class="projects-grid">
+        {projects.map((project) => <ProjectCard {...project} />)}
+      </div>
+      <div class="cta panel">
+        <h2>Vrei un proiect similar?</h2>
+        <p>Spune-ne despre afacerea ta și îți propunem următorii pași.</p>
+        <a class="btn btn-primary" href="/contact/">Solicită o ofertă</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 800px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

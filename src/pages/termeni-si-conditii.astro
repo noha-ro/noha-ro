@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Termeni și condiții"
+  description="Termeni și condiții pentru utilizarea site-ului noha.ro și a serviciilor WEBGEMS SRL."
+>
+  <section class="section">
+    <div class="container prose">
+      <h1>Termeni și condiții</h1>
+      <p>
+        Bine ați venit pe <strong>Noha.ro</strong>. Prin accesarea și utilizarea acestui site,
+        sunteți de acord cu termenii de mai jos.
+      </p>
+
+      <h2>1. Informații generale</h2>
+      <p>
+        Site-ul și serviciile Noha sunt oferite de <strong>{site.company.name}</strong>, cu sediul în
+        <strong>{site.company.legalAddress}</strong>, CIF <strong>{site.company.cif}</strong>, Nr.
+        Reg. Com. <strong>{site.company.regCom}</strong>.
+      </p>
+
+      <h2>2. Descrierea serviciilor</h2>
+      <p>
+        Oferim servicii de creare website, optimizare SEO, e-commerce, mentenanță, branding și
+        marketing digital. Specificațiile fiecărui proiect se stabilesc de comun acord cu clientul.
+      </p>
+
+      <h2>3. Proprietate intelectuală</h2>
+      <p>
+        Materialele de pe acest site (texte, imagini, logo-uri, design) aparțin Noha / {site.company.name},
+        dacă nu se menționează altfel. Reproducerea fără acord scris este interzisă.
+      </p>
+
+      <h2>4. Limitarea răspunderii</h2>
+      <p>
+        Ne străduim să oferim informații și servicii corecte, însă nu garantăm rezultate specifice
+        (inclusiv poziții SEO). Nu răspundem pentru daune indirecte sau consecințe rezultate din
+        utilizarea site-ului sau a serviciilor.
+      </p>
+
+      <h2>5. Plăți</h2>
+      <p>
+        Prețurile și termenele de plată se stabilesc prin ofertă / contract individual. Nerespectarea
+        termenilor de plată poate duce la suspendarea sau încetarea serviciilor.
+      </p>
+
+      <h2>6. Modificări</h2>
+      <p>
+        Putem actualiza acești termeni oricând. Versiunea curentă este afișată pe această pagină.
+        Continuarea utilizării site-ului după modificări înseamnă acceptarea lor.
+      </p>
+
+      <h2>7. Contact</h2>
+      <p>
+        Întrebări: <a href={`mailto:${site.email}`}>{site.email}</a> ·
+        <a href={site.phoneHref}>{site.phone}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+</style>
