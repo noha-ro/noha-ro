@@ -41,5 +41,5 @@ Apoi leagă domeniul `noha.ro` în Cloudflare Dashboard → Workers & Pages → 
 |------|-----|
 | `src/pages/` | Pagini + API contact |
 | `src/content/blog/` | Articole Markdown |
-| `src/data/site.ts` | Contact, servicii, proiecte |
+| `src/data/site.ts` | Contact, servicii, FAQ |
 | `wrangler.jsonc` | Config Cloudflare Worker |

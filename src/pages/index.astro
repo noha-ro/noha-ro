@@ -2,8 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { projects, services, site } from '../data/site';
+import { services, site } from '../data/site';
 
 export const prerender = true;
 ---
@@ -20,7 +19,7 @@ export const prerender = true;
         </p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="/contact/">Începe acum</a>
-          <a class="btn btn-ghost" href="/proiecte/">Vezi proiectele</a>
+          <a class="btn btn-ghost" href="/servicii/">Vezi serviciile</a>
         </div>
         <div class="hero__stats">
           <div class="stat">
@@ -118,22 +117,6 @@ export const prerender = true;
       />
       <div class="grid-3">
         {services.map((service) => <ServiceCard title={service.title} summary={service.summary} />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-wash">
-    <div class="container">
-      <div class="projects-head">
-        <SectionHeading
-          eyebrow="Proiectele noastre"
-          title="Proiecte finalizate"
-          lead="Am colaborat cu afaceri din domenii diferite pentru a transforma ideile în site-uri de impact."
-        />
-        <a class="btn btn-ghost" href="/proiecte/">Vezi toate proiectele</a>
-      </div>
-      <div class="projects-grid">
-        {projects.map((project) => <ProjectCard {...project} />)}
       </div>
     </div>
   </section>
@@ -296,20 +279,6 @@ export const prerender = true;
     font-size: 0.85rem;
   }
 
-  .projects-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: end;
-    margin-bottom: 0.5rem;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
-
   .cta__inner {
     display: flex;
     justify-content: space-between;
@@ -354,8 +323,7 @@ export const prerender = true;
 
   @media (max-width: 900px) {
     .hero__grid,
-    .split,
-    .projects-grid {
+    .split {
       grid-template-columns: 1fr;
     }
 
@@ -364,7 +332,6 @@ export const prerender = true;
       order: -1;
     }
 
-    .projects-head,
     .cta__inner {
       flex-direction: column;
       align-items: start;

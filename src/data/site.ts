@@ -23,7 +23,6 @@ export const site = {
     { href: '/', label: 'Acasă' },
     { href: '/despre-noi/', label: 'Despre noi' },
     { href: '/servicii/', label: 'Servicii' },
-    { href: '/proiecte/', label: 'Proiecte' },
     { href: '/blog/', label: 'Blog' },
     { href: '/contact/', label: 'Contact' },
   ],
@@ -69,33 +68,6 @@ export const services = [
       'Identități vizuale puternice și materiale de design care te diferențiază pe piață.',
     details:
       'Logo, paletă, tipografie și materiale digitale coerente pe web și social media.',
-  },
-];
-
-export const projects = [
-  {
-    name: 'adrianiliescu.art',
-    url: 'https://adrianiliescu.art',
-    image: '/images/projects/adrianiliescu.png',
-    category: 'Portofoliu artist',
-  },
-  {
-    name: 'beepry.ro',
-    url: 'https://beepry.ro',
-    image: '/images/projects/beepry.png',
-    category: 'Website business',
-  },
-  {
-    name: 'epictoys.ro',
-    url: 'https://epictoys.ro',
-    image: '/images/projects/epictoys.png',
-    category: 'E-commerce',
-  },
-  {
-    name: 'jollin.ro',
-    url: 'https://jollin.ro',
-    image: '/images/projects/jollin.png',
-    category: 'Website business',
   },
 ];
 
